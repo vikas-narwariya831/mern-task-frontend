@@ -27,30 +27,30 @@ const ProductList = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="container mx-auto py-12">
-      <h1 className="text-3xl font-bold text-center mb-2">Our Finest Selection</h1>
-      <p className="text-center mb-12">From all 300 dresses</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="container py-12 mx-auto">
+      <h1 className="mb-2 text-3xl font-bold text-center">Our Finest Selection</h1>
+      <p className="mb-12 text-center">From all 300 dresses</p>
+      <div className="flex flex-wrap justify-center gap-8">
         {products.map((product) => (
           <motion.div
             key={product._id}
-            className="relative border rounded-lg overflow-hidden shadow-lg bg-white transition-transform"
+            className="relative w-full max-w-xs overflow-hidden transition-transform bg-white border rounded-lg shadow-lg"
             whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(0, 0, 0, 0.2)' }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <img src={product.imageUrl} alt={product.name} className="w-full h-60 object-contain mb-4" />
+            <img src={product.imageUrl} alt={product.name} className="object-contain w-full mb-4 h-60" />
             <div className="p-4">
-              <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-              <p className="text-red-500 text-lg font-bold mb-3">{product.price}</p>
+              <h2 className="mb-2 text-xl font-semibold">{product.name}</h2>
+              <p className="mb-3 text-lg font-bold text-red-500">{product.price}</p>
               <motion.button
-                className="bg-blue-500 text-white px-4 py-2 flex items-center justify-center rounded-lg transition-transform hover:bg-blue-600 focus:outline-none"
+                className="flex items-center justify-center px-4 py-2 text-white transition-transform bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 mr-2"
+                  className="w-6 h-6 mr-2"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -68,6 +68,7 @@ const ProductList = () => {
           </motion.div>
         ))}
       </div>
+      <button className='flex px-4 py-4 mx-auto mt-10 text-white bg-black rounded-md'>Check All Dresses</button>
     </div>
   );
 };

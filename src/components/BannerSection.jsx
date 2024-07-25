@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 // const banners = [
 //   {
@@ -58,7 +58,7 @@ const BannerSection = () => {
     };
   
     return (
-      <div className="relative w-full overflow-hidden h-screen">
+      <div className="relative w-full h-screen overflow-hidden">
         {banners.map((banner, index) => (
           <div
             key={index}
@@ -66,21 +66,21 @@ const BannerSection = () => {
             style={{ backgroundImage: `url(${banner.image})` }}
           >
             <div className={`text-center text-white p-4 transition-transform duration-1000 ease-in-out ${currentIndex === index ? 'animate-fade-up' : ''}`}>
-              <h3 className="text-5xl font-bold uppercase tracking-wide text-shadow-custom">{banner.heading}</h3>
+              <h3 className="text-5xl font-bold tracking-wide uppercase text-shadow-custom">{banner.heading}</h3>
               <p className="mt-4 text-xl whitespace-pre-line text-shadow-custom">{banner.subtext}</p>
               <a
                 href={banner.link}
-                className="mt-6 inline-block bg-pink-light hover:bg-pink-dark text-white font-bold py-2 px-6 rounded"
+                className="inline-block px-6 py-2 mt-6 font-bold text-white rounded bg-pink-light hover:bg-pink-dark"
               >
                 {banner.button}
               </a>
             </div>
           </div>
         ))}
-        <button onClick={prevSlide} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
+        <button onClick={prevSlide} className="absolute p-2 text-white transform -translate-y-1/2 bg-gray-700 rounded-full left-4 top-1/2">
           &#10094;
         </button>
-        <button onClick={nextSlide} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full">
+        <button onClick={nextSlide} className="absolute p-2 text-white transform -translate-y-1/2 bg-gray-700 rounded-full right-4 top-1/2">
           &#10095;
         </button>
       </div>
